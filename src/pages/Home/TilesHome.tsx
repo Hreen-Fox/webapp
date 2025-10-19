@@ -23,6 +23,14 @@ export default function TilesHome() {
                     intervalMs={7000}
                 />
                 <TileButton
+                    title="Статистика"
+                    slides={['Ты красава', 'Реально', 'Лучший']}
+                    onClick={() => {
+                    }}
+                    bgIcon={<ChartLine className="w-32 h-32" strokeWidth={1}/>}
+                    intervalMs={7000}
+                />
+                <TileButton
                     title="Теория"
                     description="Какая-то хуйня тут написана"
                     onClick={() => setStoriesOpen(true)}
