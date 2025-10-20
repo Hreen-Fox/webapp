@@ -57,7 +57,7 @@ export default function SectionButton({
     const timer = useRef<ReturnType<typeof setInterval> | null>(null); // Таймер автопрокрутки
 
     // Рендер одного слайда: значение + подпись
-    function renderSlide(item: SlideItem): JSX.Element {
+    function renderSlide(item: SlideItem) {
         return (
             <div className="w-full h-full flex flex-col items-center justify-center px-2">
                 <div className="text-2xl font-bold leading-tight ">{item.value}</div>
