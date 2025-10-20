@@ -1,13 +1,9 @@
-import './App.css'
+import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-
-// Страницы
 import HomePage from "./pages/Home/Home.tsx";
 import StatsPage from "./pages/Statistics/Statistics.tsx";
 import TrainingsPage from "./pages/Training/Trainings.tsx";
-
-// Компоненты
-import BottomNav from "./components/layout/BottomNav";
+import BottomNav from "./components/home/BottomNav.tsx";
 
 function App() {
     return (

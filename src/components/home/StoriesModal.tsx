@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import {X} from "lucide-react";
 
-import type {StoryContent} from '../../data/storiesHomeData';
+import type {StoryContent} from '../../data/storiesHomeData.tsx';
 
 interface StoriesModalProps {
     items: StoryContent[];
