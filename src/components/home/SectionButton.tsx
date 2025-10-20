@@ -60,8 +60,8 @@ export default function SectionButton({
     function renderSlide(item: SlideItem) {
         return (
             <div className="w-full h-full flex flex-col items-center justify-center px-2">
-                <div className="text-2xl font-bold leading-tight ">{item.value}</div>
-                <div className="text-sm mt-1 text-gray-400 text-center">{item.label}</div>
+                <div className="text-xl font-bold leading-tight ">{item.value}</div>
+                <div className="text-xs mt-1 text-gray-400 text-center">{item.label}</div>
             </div>
         );
     }
@@ -143,7 +143,7 @@ export default function SectionButton({
             onClick={onClick}
             className={`${color && (color)}
                 relative overflow-hidden flex flex-col aspect-square
-                items-center p-6 bg-zinc-800 rounded-xl transition-colors duration-200
+                items-center p-4 bg-zinc-800 rounded-xl transition-colors duration-200
                 active:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-white/30`}
             aria-label={title}
             onTouchStart={handleTouchStart}
@@ -157,7 +157,7 @@ export default function SectionButton({
             )}
 
             {/* Заголовок плитки */}
-            <h3 className="w-full text-left text-gray-300 text-base font-medium mb-2">
+            <h3 className="w-full text-left text-gray-300 text-sm font-medium">
                 {title}
             </h3>
 

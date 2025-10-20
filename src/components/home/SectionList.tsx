@@ -13,17 +13,19 @@
  */
 
 import {ChartLine, BookOpen, Clock8, ClipboardClock} from 'lucide-react';
-import {useState} from "react";
+import { useState } from "react";
 // UI-компоненты
 import StoriesModal from "./StoriesModal.tsx";
 import SectionButton from "./SectionButton.tsx";
 // Данные для модального окна "Теория"
-import {theoryStories} from "../../data/storiesHomeData.tsx";
+import { theoryStories } from "../../data/storiesHomeData.tsx";
+import { useNavigate } from 'react-router-dom';
 
 // Основной компонент
 export default function SectionList() {
     // Состояние: открыто ли модальное окно "Теория"
     const [storiesOpen, setStoriesOpen] = useState(false);
+    const navigate = useNavigate();
 
     // Рендер компонента
     return (
@@ -40,7 +42,7 @@ export default function SectionList() {
                         {value: '1ч 7мин ⏳', label: 'Длительность'}
                     ]}
                     onClick={() => {
-                        // Потом: перейти к странице рекордов или открыть детали
+                       navigate('/stats')
                     }}
                     bgIcon={<ChartLine className="w-[90%] h-[90%]" strokeWidth={1}/>}
                     intervalMs={7000}
