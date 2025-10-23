@@ -16,9 +16,10 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 interface ProgressChartProps {
   data: ChartDataPoint[];
+  title?: string;
 }
 
-export default function Chart({ data }: ProgressChartProps) {
+export default function Chart({ data, title }: ProgressChartProps) {
   const chartRef = useRef<any>(null);
 
   const labels = data.map((d) => d.date);
@@ -83,6 +84,17 @@ export default function Chart({ data }: ProgressChartProps) {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
+      title: {
+        display: !!title,
+        text: title || '',
+        color: '#d1d5db',
+        font: {
+          size: 12,
+          weight: 'bold' as const,
+        },
+        padding: { top: 10, bottom: 20 },
+        align: 'start' as const,
+      },
       legend: {
         display: true,
         position: 'bottom' as const,

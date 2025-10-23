@@ -68,10 +68,10 @@ export default function PanelList() {
                 title="Прогресс за месяц"
                 onClick={() => {}}
                 extSlides={[
-                    { chart: <Chart data={weightData}/> },
-                    { chart: <Chart data={repsData}/> },
+                    { chart: <Chart data={weightData} title='Жим жесткий'/> },
+                    { chart: <Chart data={repsData} title='Жим полегче'/> },
                 ]}
-                height='h-52'
+                height='h-60'
             />     
             <div>  
                 <button onClick={() => changeColor(MUSCLE_GROUPS.Chest, 'red')}>
