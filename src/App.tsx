@@ -4,6 +4,7 @@ import HomePage from "./pages/Home/Home.tsx";
 import StatsPage from "./pages/Statistics/Statistics.tsx";
 import TrainingsPage from "./pages/Training/Trainings.tsx";
 import BottomNav from "./components/home/BottomNav.tsx";
+import TestPage from "./pages/TestPage/TestPage.tsx";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                         <Route path="/" element={<HomePage/>}/>
                         <Route path="/stats" element={<StatsPage/>}/>
                         <Route path="/trainings" element={<TrainingsPage/>}/>
+                        <Route path="/testpage" element={<TestPage/>}/>
                     </Routes>
                 </main>
                 <BottomNav/>

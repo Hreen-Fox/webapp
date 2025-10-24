@@ -81,6 +81,14 @@ export default function SectionList() {
                     bgIcon={<ClipboardClock className="w-[90%] h-[90%]" strokeWidth={1}/>}
                     color="text-green-400"
                 />
+                {/* Плитка: Тестовая страница */}
+                <SectionButton
+                    title="Моя программа"
+                    slide={{value: 'Тест', label: 'данные tg api'}}
+                    onClick={() => {navigate('/testpage')}}
+                    bgIcon={<ClipboardClock className="w-[90%] h-[90%]" strokeWidth={1}/>}
+                    color="text-green-400"
+                />
             </div>
 
             {/* Модальное окно: Теория (сторис) */}
