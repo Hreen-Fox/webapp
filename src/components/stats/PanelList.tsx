@@ -74,13 +74,13 @@ export default function PanelList() {
                 height='h-60'
             />     
             <div>  
-                <button onClick={() => changeColor(MUSCLE_GROUPS.muscle_3, 'red')}>
+                <button onClick={() => changeColor(MUSCLE_GROUPS[3], 'red')}>
                     TEST BODY COLOR CHANGE
                 </button>
-                <button onClick={() => changeColor(MUSCLE_GROUPS.muscle_5, 'orange')}>
+                <button onClick={() => changeColor(MUSCLE_GROUPS[5], 'orange')}>
                     TEST BODY COLOR CHANGE
                 </button>
-                <button onClick={() => changeColor(MUSCLE_GROUPS.muscle_7, 'yellow')}>
+                <button onClick={() => changeColor(MUSCLE_GROUPS[7], 'yellow')}>
                     TEST BODY COLOR CHANGE
                 </button>
             </div>  

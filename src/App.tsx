@@ -6,6 +6,7 @@ import TrainingsPage from "./pages/Training/Trainings.tsx";
 import BottomNav from "./components/home/BottomNav.tsx";
 import TestPage from "./pages/TestPage/TestPage.tsx";
 import MyProgram from "./pages/MyProgram/MyProgram.tsx";
+import NewProgram from './pages/MyProgram/NewProgram.tsx';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                         <Route path="/trainings" element={<TrainingsPage/>}/>
                         <Route path="/testpage" element={<TestPage/>}/>
                         <Route path="/myprogram" element={<MyProgram/>}/>
+                        <Route path="/newprogram" element={<NewProgram userId="1"/>}/>
                     </Routes>
                 </main>
                 <BottomNav/>
