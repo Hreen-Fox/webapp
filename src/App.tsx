@@ -5,6 +5,7 @@ import StatsPage from "./pages/Statistics/Statistics.tsx";
 import TrainingsPage from "./pages/Training/Trainings.tsx";
 import BottomNav from "./components/home/BottomNav.tsx";
 import TestPage from "./pages/TestPage/TestPage.tsx";
+import MyProgram from "./pages/MyProgram/MyProgram.tsx";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                         <Route path="/stats" element={<StatsPage/>}/>
                         <Route path="/trainings" element={<TrainingsPage/>}/>
                         <Route path="/testpage" element={<TestPage/>}/>
+                        <Route path="/myprogram" element={<MyProgram/>}/>
                     </Routes>
                 </main>
                 <BottomNav/>

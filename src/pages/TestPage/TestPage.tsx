@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type {WebAppInitData} from '../../telegram-webapp';
+import type {WebAppInitData} from '../../types/telegram-webapp';
 
 // Вспомогательный компонент для отображения пар "ключ: значение"
 const DataItem = ({ label, value }: { label: string; value: string }) => (

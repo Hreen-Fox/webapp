@@ -75,15 +75,13 @@ export default function SectionList() {
                 <SectionButton
                     title="Моя программа"
                     slide={{value: 'Full Body', label: '3 дня/нед'}}
-                    onClick={() => {
-                        // Потом: перейти к программе тренировок
-                    }}
+                    onClick={() => {navigate('/myprogram')}}
                     bgIcon={<ClipboardClock className="w-[90%] h-[90%]" strokeWidth={1}/>}
                     color="text-green-400"
                 />
                 {/* Плитка: Тестовая страница */}
                 <SectionButton
-                    title="Моя программа"
+                    title="Тест тг апи"
                     slide={{value: 'Тест', label: 'данные tg api'}}
                     onClick={() => {navigate('/testpage')}}
                     bgIcon={<ClipboardClock className="w-[90%] h-[90%]" strokeWidth={1}/>}
