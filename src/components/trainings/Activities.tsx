@@ -77,7 +77,7 @@ const MonthBlock: React.FC<MonthBlockProps> = ({ year, monthIndex, monthName, ac
 };
 
 // Основной компонент: отображает три последних месяца (текущий и два предыдущих).
-export default function Activnost() {
+export default function Activities() {
     // === ИМИТАЦИЯ ОТВЕТА СЕРВЕРА ===
     // В реальном приложении эти данные будут приходить через API
     const serverResponse = {
