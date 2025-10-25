@@ -34,7 +34,7 @@ export default function TestPage() {
 
     if (error) {
         return (
-            <div style={{ padding: '20px', color: '#d32f2f', fontFamily: 'sans-serif' }}>
+            <div style={{ padding: '20px', color: 'white', fontFamily: 'sans-serif' }}>
                 <h2>⚠️ Ошибка</h2>
                 <p>{error}</p>
             </div>
@@ -52,7 +52,7 @@ export default function TestPage() {
     const { user, receiver, chat, ...meta } = initData;
 
     return (
-        <div style={{ padding: '16px', fontFamily: 'sans-serif', color: '#000' }}>
+        <div style={{ padding: '16px', fontFamily: 'sans-serif', color: 'white' }}>
             <h2>📋 Данные пользователя</h2>
 
             {/* Основной пользователь */}
