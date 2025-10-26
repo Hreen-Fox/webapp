@@ -8,6 +8,7 @@ import BottomNav from "./components/home/BottomNav.tsx";
 import TestPage from "./pages/TestPage/TestPage.tsx";
 import MyProgram from "./pages/MyProgram/MyProgram.tsx";
 import NewProgram from './pages/MyProgram/NewProgram.tsx';
+import TrainingView from './pages/MyProgram/TrainingView.tsx';
 import { useUser } from './useUser';
 import useUserInfo from "./api/requests/get/hooks/getUserInfoHook.ts";
 import createUser from "./api/requests/post/postCreateUser.ts";
@@ -63,7 +64,9 @@ function App() {
                     <Route path="/trainings" element={<TrainingsPage />} />
                     <Route path="/testpage" element={<TestPage />} />
                     <Route path="/myprogram" element={<MyProgram />} />
-                    <Route path="/newprogram" element={<NewProgram userId={user?.id.toString() || '1'} />} />
+                    <Route path="/newprogram" element={<NewProgram userId={user?.id.toString() || '1001'} />} />
+                    <Route path="/trainingsession" element={<TrainingView/>} />
+                    <Route path="*" element={<div className="p-4">404 - Страница не найдена</div>} />
                 </Routes>
             </main>
             <BottomNav/>
