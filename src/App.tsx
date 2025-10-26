@@ -7,11 +7,12 @@ import BottomNav from "./components/home/BottomNav.tsx";
 import TestPage from "./pages/TestPage/TestPage.tsx";
 import MyProgram from "./pages/MyProgram/MyProgram.tsx";
 import NewProgram from './pages/MyProgram/NewProgram.tsx';
+import TrainingView from './pages/MyProgram/TrainingView.tsx';
 import { useUser } from './useUser';
 
 // ПЕРЕД КОМИТОВ В ГИТХАБ УСТАНОВИТЕ ЗАНЧЕНИЕ false
 // Для работы на локальном сервере установите true
-const testing = false;
+const testing = true;
 
 function App() {
     const { user, error, loading } = useUser();
@@ -42,7 +43,9 @@ function App() {
                     <Route path="/trainings" element={<TrainingsPage />} />
                     <Route path="/testpage" element={<TestPage />} />
                     <Route path="/myprogram" element={<MyProgram />} />
-                    <Route path="/newprogram" element={<NewProgram userId={user?.id.toString() || '1'} />} />
+                    <Route path="/newprogram" element={<NewProgram userId={user?.id.toString() || '1001'} />} />
+                    <Route path="/trainingsession" element={<TrainingView/>} />
+                    <Route path="*" element={<div className="p-4">404 - Страница не найдена</div>} />
                 </Routes>
             </main>
             <BottomNav/>

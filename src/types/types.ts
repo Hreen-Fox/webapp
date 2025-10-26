@@ -34,3 +34,8 @@ export interface CreateUserRequest {
   id_telegram: number;
   name_user: string;
 }
+
+export interface TrainingResult {
+  exerciseId: number;
+  sets: number;
+}

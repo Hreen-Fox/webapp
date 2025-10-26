@@ -5,7 +5,6 @@ import SocialButton from "../../components/ui/SocialButton.tsx";
 export default function MyProgram() {
 
     const navigate = useNavigate();
-
     return (
         <div className="h-full flex flex-col mx-4" id="myprogram">
             <div className="text-center pt-12 pb-8">
@@ -20,6 +19,20 @@ export default function MyProgram() {
                             onClick={() => {navigate('/newprogram')}}
                     />}
             />
+
+            {/** ЗАМЕНИТЬ НА НОРМАЛЬНЫЕ ДАННЫЕ */}
+            <div className="flex flex-col my-4 w-full">
+            <Panel title="Тренировка 1"
+                    onClick={() => {}}
+                    button={<SocialButton
+                            title="Начать >"
+                            color="bg-purple-700"
+                            textColor='text-white'
+                            onClick={() => {navigate('/trainingsession')}}
+                    />}
+            />
+            </div>
+
         </div>
     );
 };
