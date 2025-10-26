@@ -1,12 +1,6 @@
 import { api } from '../../apiClient';
+import type { CreateUserRequest } from '../../../types/types';
 
-// Создание нового пользователя
-export default async function createUser(userData: any) {
-  try {
-    const response = await api().post('/users/createuser', userData);
-    return response.data;
-  } catch (error) {
-    console.error('Ошибка при создании пользователя: ', error);
-    throw error;
-  }
+export default async function createUser(userData: CreateUserRequest): Promise<void> {
+  await api().post('/users/createuser', userData);
 }

@@ -17,3 +17,20 @@ export interface MuscleGroupExercises {
   loading: boolean;
   error: string | null;
 }
+
+export interface UserInfo {
+  was_registered: boolean;
+  check_train_info: number;
+  sub_user: boolean;
+}
+
+export interface UserInfoState {
+  data: UserInfo | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export interface CreateUserRequest {
+  id_telegram: number;
+  name_user: string;
+}
