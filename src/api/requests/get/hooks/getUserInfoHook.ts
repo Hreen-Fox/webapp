@@ -1,45 +1,28 @@
 import { useState, useEffect } from 'react';
 import getUserInfo from '../../get/getUserInfo'; // путь к вашей функции
-import type { UserInfoState } from '../../../../types/types'; // укажите правильный путь к типу
+import type { UserInfo } from '../../../../types/types'; // укажите правильный путь к типу
 
-export default function useUserInfo(userId: string): UserInfoState {
-  const [state, setState] = useState<UserInfoState>({
-    data: null,
-    loading: true,
-    error: null,
-  });
+export default function useUserInfo(userId: string): UserInfo | null {
+    const [data, setData] = useState<UserInfo | null>(null);
+    // loading и error больше не отслеживаются в возвращаемом значении
 
-  useEffect(() => {
-    const fetchUserInfo = async () => {
-      setState({ data: null, loading: true, error: null });
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+            try {
+                const userData = await getUserInfo(userId!);
+                setData(userData);
+            } catch (err) {
+                console.error('Ошибка при загрузке данных пользователя:', err);
+                setData(null); // в случае ошибки — возвращаем null
+            }
+        };
 
-      try {
-        const data = await getUserInfo(userId);
-        setState({
-          data,
-          loading: false,
-          error: null,
-        });
-      } catch (err) {
-        console.error('Ошибка при загрузке данных пользователя:', err);
-        setState({
-          data: null,
-          loading: false,
-          error: 'Не удалось загрузить данные пользователя',
-        });
-      }
-    };
+        if (userId) {
+            fetchUserInfo();
+        } else {
+            setData(null);
+        }
+    }, [userId]);
 
-    if (userId) {
-      fetchUserInfo();
-    } else {
-      setState({
-        data: null,
-        loading: false,
-        error: 'ID пользователя не указан',
-      });
-    }
-  }, [userId]);
-
-  return state;
+  return data;
 }
