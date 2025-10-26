@@ -15,7 +15,7 @@ import createUser from "./api/requests/post/postCreateUser.ts";
 
 // ПЕРЕД КОМИТОВ В ГИТХАБ УСТАНОВИТЕ ЗАНЧЕНИЕ false
 // Для работы на локальном сервере установите true
-const testing = true;
+const testing = false;
 
 function App() {
 
