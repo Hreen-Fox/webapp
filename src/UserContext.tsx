@@ -8,9 +8,10 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        console.log('[UserProvider] useEffect запущен');
         const tg = window.Telegram?.WebApp;
 
-        if (!tg) {
+        if (!tg || !tg.initDataUnsafe?.user) {
             setError('Это приложение должно быть запущено внутри Telegram Mini App.');
             setLoading(false);
             return;

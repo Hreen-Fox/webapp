@@ -14,7 +14,7 @@ function App() {
 
     if (error) {
         return (
-            <div style={{ padding: '20px', color: 'white', fontFamily: 'sans-serif' }}>
+            <div style={{ padding: '20px' }}>
                 <h2>⚠️ Ошибка</h2>
                 <p>{error}</p>
             </div>
@@ -23,7 +23,7 @@ function App() {
 
     if (loading || !user) {
         return (
-            <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+            <div style={{ padding: '20px' }}>
                 <p>Загрузка...</p>
             </div>
         );
@@ -33,7 +33,7 @@ function App() {
         <div className="min-h-screen pb-16 flex flex-col w-full bg-black text-white">
             <main className="flex-1">
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="/" element={<HomePage userName={user.first_name.toString()} />} />
                     <Route path="/stats" element={<StatsPage />} />
                     <Route path="/trainings" element={<TrainingsPage />} />
                     <Route path="/testpage" element={<TestPage />} />
