@@ -9,10 +9,14 @@ import MyProgram from "./pages/MyProgram/MyProgram.tsx";
 import NewProgram from './pages/MyProgram/NewProgram.tsx';
 import { useUser } from './useUser';
 
+// ПЕРЕД КОМИТОВ В ГИТХАБ УСТАНОВИТЕ ЗАНЧЕНИЕ false
+// Для работы на локальном сервере установите true
+const testing = false;
+
 function App() {
     const { user, error, loading } = useUser();
 
-    if (error) {
+    if (error && !testing) {
         return (
             <div style={{ padding: '20px' }}>
                 <h2>⚠️ Ошибка</h2>
@@ -21,7 +25,7 @@ function App() {
         );
     }
 
-    if (loading || !user) {
+    if (loading || !user && !testing) {
         return (
             <div style={{ padding: '20px' }}>
                 <p>Загрузка...</p>
@@ -33,12 +37,12 @@ function App() {
         <div className="min-h-screen pb-16 flex flex-col w-full bg-black text-white">
             <main className="flex-1">
                 <Routes>
-                    <Route path="/" element={<HomePage userName={user.first_name.toString()} />} />
+                    <Route path="/" element={<HomePage userName={user?.first_name.toString()} />} />
                     <Route path="/stats" element={<StatsPage />} />
                     <Route path="/trainings" element={<TrainingsPage />} />
                     <Route path="/testpage" element={<TestPage />} />
                     <Route path="/myprogram" element={<MyProgram />} />
-                    <Route path="/newprogram" element={<NewProgram userId={user.id.toString()} />} />
+                    <Route path="/newprogram" element={<NewProgram userId={user?.id.toString() || '1'} />} />
                 </Routes>
             </main>
             <BottomNav/>
