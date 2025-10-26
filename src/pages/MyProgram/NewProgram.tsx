@@ -11,7 +11,7 @@ export default function CreateNewProgram({ userId }: NewProgramProps) {
 		<div className="h-full flex flex-col mx-4" id="newprogram">
 			<div className="text-center pt-12 pb-8">
 				<h1 className="home-title text-2xl font-bold">Новая программа</h1>
-				<h2 className="home-title text-lg font-bold">Выбери упражнения для своей тренировки!</h2>
+				<h2 className="mt-3 text-lg font-bold text-gray-400">Выбери упражнения для своей тренировки!</h2>
 			</div>
 			<ExerciseCategories userId={userId} />
 		</div>
