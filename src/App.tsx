@@ -17,6 +17,20 @@ import createUser from "./api/requests/post/postCreateUser.ts";
 // Для работы на локальном сервере установите true
 const testing = false;
 
+const useGetHomeData = (userId: string | undefined) => {
+    // В реальном коде: useState, useEffect с fetch/axios и логика loading/error
+
+    // Пример данных: Пользователь готов к тренировке (базовое состояние)
+    const mockHomeData = {
+        check_train_this_day: false,
+        program_for_today: true,
+        program_for_today_is_empty: false,
+    };
+    
+    // Возвращаем данные. В реальном приложении здесь была бы логика загрузки и ошибок.
+    return mockHomeData; 
+}
+
 function App() {
 
     const {user, error, loading} = useUser();
@@ -41,6 +55,7 @@ function App() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const data = useUserInfo(user?.id.toString() || '1');
     // eslint-disable-next-line react-hooks/rules-of-hooks
+    const homeData = useGetHomeData(user?.id.toString());
     useEffect(() => {
         if (!data?.was_registered ) {
             const handleCreate = async () => {
@@ -59,7 +74,7 @@ function App() {
         <div className="min-h-screen pb-16 flex flex-col w-full bg-black text-white">
             <main className="flex-1">
                 <Routes>
-                    <Route path="/" element={<HomePage userName={user?.first_name.toString()} />} />
+                    <Route path="/" element={<HomePage userName={user?.first_name.toString()} homeData={homeData} />} />
                     <Route path="/stats" element={<StatsPage />} />
                     <Route path="/trainings" element={<TrainingsPage />} />
                     <Route path="/testpage" element={<TestPage />} />
