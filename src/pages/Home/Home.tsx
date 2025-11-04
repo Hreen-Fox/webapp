@@ -12,7 +12,7 @@ interface HomeProps {
     };
 }
 
-export default function HomePage({ userName = "Гость", homeData }: HomeProps) {
+export default function HomePage({ userName, homeData }: HomeProps) {
     const navigate = useNavigate();
 
     return (

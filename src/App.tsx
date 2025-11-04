@@ -17,7 +17,7 @@ import createUser from "./api/requests/post/postCreateUser.ts";
 // Для работы на локальном сервере установите true
 const testing = false;
 
-const useGetHomeData = (userId: string | undefined) => {
+const useGetHomeData = (_userId: string | undefined) => {
     // В реальном коде: useState, useEffect с fetch/axios и логика loading/error
 
     // Пример данных: Пользователь готов к тренировке (базовое состояние)
@@ -74,7 +74,7 @@ function App() {
         <div className="min-h-screen pb-16 flex flex-col w-full bg-black text-white">
             <main className="flex-1">
                 <Routes>
-                    <Route path="/" element={<HomePage userName={user?.first_name.toString()} homeData={homeData} />} />
+                    <Route path="/" element={<HomePage userName={user?.first_name?.toString() ?? 'Гость'} homeData={homeData} />} />
                     <Route path="/stats" element={<StatsPage />} />
                     <Route path="/trainings" element={<TrainingsPage />} />
                     <Route path="/testpage" element={<TestPage />} />

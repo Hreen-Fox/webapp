@@ -1,13 +1,12 @@
-import React, { useMemo, useState, useEffect, useRef, useCallback } from 'react';
-// Иконки из Lucide для фона
-import { Trophy, BookOpen, Clock8, ClipboardClock } from 'lucide-react'; 
+import React from 'react';
+
 
 interface StatCardProps {
   title: string;
   value: React.ReactNode;
   subtitle?: string;
   color?: string; // Используется для value, если это string
-  icon: React.ReactNode; // Используется для фона
+  icon: React.ReactElement<{ className?: string, [key: string]: unknown }>;
   onClick?: () => void;
   isDisabled?: boolean;
 }
@@ -34,7 +33,10 @@ export default function StatCard({ title, value, subtitle, color = 'text-white',
       {/* Фоновая иконка, как в концепте */}
       <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none select-none">
         {/* Иконка в центре с большим размером */}
-        {React.cloneElement(icon as React.ReactElement, { className: "w-[90%] h-[90%]" })}
+        {React.cloneElement(
+            icon, 
+            { className: "w-[90%] h-[90%]" } as { className: string }
+        )}
       </div>
       
       {isStringValue ? (
