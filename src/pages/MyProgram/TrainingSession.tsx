@@ -1,13 +1,7 @@
 // components/WorkoutSession.tsx
 import { useState, useEffect } from 'react';
 import type { TrainingResult } from '../../types/types'
-
-interface TrainingExercise {
-  id: number;
-  name: string;
-  description: string;
-  gif_url?: string;
-}
+import type { TrainingExercise } from '../../types/types'
 
 interface TrainingSessionProps {
   exercises: TrainingExercise[];
@@ -36,7 +30,7 @@ export default function TrainingSession({ exercises, onComplete }: TrainingSessi
       const isLast = currentIndex === exercises.length - 1;
 
       if (isLast) {
-        // ✅ Явно указываем тип
+        // Явно указываем тип
         const results: TrainingResult[] = exercises.map((ex, i) => ({
           exerciseId: ex.id,
           sets: i === currentIndex ? sets : 0,
@@ -65,10 +59,10 @@ export default function TrainingSession({ exercises, onComplete }: TrainingSessi
           <p className="mt-2 text-gray-600">{currentExercise.description}</p>
         </div>
 
-        {currentExercise.gif_url && (
+        {currentExercise.icon && (
           <div className="mb-6 flex justify-center">
             <img
-              src={currentExercise.gif_url}
+              src={currentExercise.icon}
               alt={currentExercise.name}
               className="max-h-48 object-contain"
             />

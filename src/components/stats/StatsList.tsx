@@ -3,14 +3,14 @@ import { MUSCLE_GROUPS, INITIAL_MUSCLE_COLORS } from '../../data/MusclesGroups';
 import type { MuscleGroup } from '../../data/MusclesGroups';
 import MuscleFrontSVG from '../../data/MusclesFront';
 import MuscleBackSVG from '../../data/MusclesBack';
-import Panel from '../../components/ui/Panel';
-import SocialButton from './../../components/ui/SocialButton';
-import Chart from './../../components/ui/Chart';
+import Panel from '../ui/Panel';
+import SocialButton from '../ui/SocialButton';
+import Chart from '../ui/Chart';
 import { Share } from 'lucide-react';
 import type { ChartDataPoint } from '../../data/ChartDataPoint';
 
 
-export default function PanelList() {
+export default function StatsList() {
 
     const [colors, setColors] = useState<Record<MuscleGroup, string>>(INITIAL_MUSCLE_COLORS);
 

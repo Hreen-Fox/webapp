@@ -30,7 +30,7 @@ export default function BottomNav() {
                         <button
                             onClick={() => navigate(item.path)}
                             className={`flex flex-col items-center text-xs transition-colors ${
-                                activeId === item.id ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'
+                                activeId === item.id ? 'text-white' : 'text-zinc-500'
                             }`}
                         >
                             <span className="mb-1">{item.icon}</span>

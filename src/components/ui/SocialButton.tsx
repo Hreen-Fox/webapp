@@ -16,7 +16,7 @@ export default function SocialButton({
                                     onClick,
                                     }: SocialButtonProps) {
     return (
-        <div className={`${color && (color)}
+        <button className={`${color && (color)}
                             ${textColor && (textColor)} 
                             rounded-xl 
                             items-center
@@ -29,6 +29,6 @@ export default function SocialButton({
                             onClick={onClick}>
             {title}
             {Icon && <Icon className="w-3 h-3 ml-2" strokeWidth={2} />}
-        </div>
+        </button>
     ) 
 }

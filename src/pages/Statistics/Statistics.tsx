@@ -1,4 +1,4 @@
-import PanelList from "../../components/stats/PanelList";
+import StatsList from "../../components/stats/StatsList";
 
 
 export default function StatsPage() {
@@ -9,7 +9,7 @@ export default function StatsPage() {
                 <h1 className="text-2xl font-bold mb-2">Статистика</h1>
             </div>
 
-            <PanelList/>
+            <StatsList/>
             {/* <StatsChart /> */}
         </div>
     );

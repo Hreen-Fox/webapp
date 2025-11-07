@@ -7,7 +7,6 @@ import TrainingsPage from "./pages/Training/Trainings.tsx";
 import BottomNav from "./components/home/BottomNav.tsx";
 import TestPage from "./pages/TestPage/TestPage.tsx";
 import MyProgram from "./pages/MyProgram/MyProgram.tsx";
-import NewProgram from './pages/MyProgram/NewProgram.tsx';
 import TrainingView from './pages/MyProgram/TrainingView.tsx';
 import { useUser } from './useUser';
 import useUserInfo from "./api/requests/get/hooks/getUserInfoHook.ts";
@@ -15,7 +14,7 @@ import createUser from "./api/requests/post/postCreateUser.ts";
 
 // ПЕРЕД КОМИТОВ В ГИТХАБ УСТАНОВИТЕ ЗАНЧЕНИЕ false
 // Для работы на локальном сервере установите true
-const testing = false;
+const testing = true;
 
 const useGetHomeData = (_userId: string | undefined) => {
     // В реальном коде: useState, useEffect с fetch/axios и логика loading/error
@@ -35,40 +34,20 @@ function App() {
 
     const {user, error, loading} = useUser();
 
-    if (error && !testing) {
-        return (
-            <div style={{padding: '20px'}}>
-                <h2>⚠️ Ошибка</h2>
-                <p>{error}</p>
-            </div>
-        );
-    }
-
-    if (loading || !user && !testing) {
-        return (
-            <div style={{padding: '20px'}}>
-                <p>Загрузка...</p>
-            </div>
-        );
-    }
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const data = useUserInfo(user?.id.toString() || '1');
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const homeData = useGetHomeData(user?.id.toString());
-    useEffect(() => {
-        if (!data?.was_registered ) {
-            const handleCreate = async () => {
-                try {
-                    await createUser({ id_telegram: user?.id || 1, name_user: user?.first_name || 'Гость' });
-                    // success
-                } catch (err) {
-                    console.log(err)
-                }
-            };
-            handleCreate().then(r => {console.log(r)});
+    const userId = user?.id.toString();
+    const data = useUserInfo(userId || '1001');
+    const homeData = useGetHomeData(userId);
+    
+     useEffect(() => {
+        if (user && data && !data.was_registered) {
+            (async () => {
+                await createUser({ id_telegram: user.id, name_user: user.first_name || 'Гость' });
+            })();
         }
-    }, [data?.was_registered, user?.first_name, user?.id]);
+    }, [data?.was_registered, user]);
+
+    if (error && !testing) return <div className="p-4">⚠️ Ошибка: {error}</div>;
+    if (loading && !testing) return <div className="p-4">Загрузка...</div>;
 
     return (
         <div className="min-h-screen pb-16 flex flex-col w-full bg-black text-white">
@@ -79,9 +58,8 @@ function App() {
                     <Route path="/trainings" element={<TrainingsPage />} />
                     <Route path="/testpage" element={<TestPage />} />
                     <Route path="/myprogram" element={<MyProgram />} />
-                    <Route path="/newprogram" element={<NewProgram userId={user?.id.toString() || '1001'} />} />
                     <Route path="/trainingsession" element={<TrainingView/>} />
-                    <Route path="*" element={<div className="p-4">404 - Страница не найдена</div>} />
+                    <Route path="*" element={<div className="p-4 h-screen w-screen flex justify-center items-center">Куда 4 это 0 ты 4 залез?</div>} />
                 </Routes>
             </main>
             <BottomNav/>

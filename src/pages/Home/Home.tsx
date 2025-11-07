@@ -44,7 +44,7 @@ export default function HomePage({ userName, homeData }: HomeProps) {
                         type="button"
                         onClick={() => navigate('/trainings')}
                         disabled={homeData.check_train_this_day || !homeData.program_for_today || homeData.program_for_today_is_empty}
-                        className="mb-6 w-full bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-3 text-lg rounded-xl transition-colors duration-200 disabled:bg-zinc-900 disabled:text-gray-500"
+                        className="mb-6 w-full bg-zinc-800 text-white font-semibold py-3 text-lg rounded-xl transition-colors duration-200 disabled:bg-zinc-900 disabled:text-gray-500"
                     >
                         {/* Меняем <span>Начнём?</span> на просто Начать */}
                         Начать

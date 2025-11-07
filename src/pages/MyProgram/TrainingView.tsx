@@ -14,9 +14,9 @@ export default function TrainingView() {
     };
 
     return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
-      <TrainingSession exercises={exercises} onComplete={handleComplete} />
-    </div>
+        <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
+            <TrainingSession exercises={exercises} onComplete={handleComplete} />
+        </div>
     )
 }
 

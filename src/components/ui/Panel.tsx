@@ -19,6 +19,7 @@ interface PanelProps {
     title: string;                  // Заголовок плитки (отображается сверху)
     button?: React.ReactNode;       // Кнопка отображается сверху)
     svgBlocks?: React.ReactNode[];  // Svg-компоненты
+    programBlock?: React.ReactNode; // Блок для программ тренировок
     extSlide?: SlideItem;           // Один статический слайд (используется, если данные не меняются)
     extSlides?: SlideItem[];        // Массив слайдов для автоматической прокрутки. Если задан — `slide` игнорируется
     height?: string;                 // Высота контента
@@ -31,6 +32,7 @@ export default function Panel({
                                 title,
                                 button,
                                 svgBlocks,
+                                programBlock,
                                 extSlide,
                                 extSlides,
                                 height = 'h-24',
@@ -40,8 +42,7 @@ export default function Panel({
    
     // Рендер
     return (
-        <button
-            type="button"
+        <div
             onClick={onClick}
             className={`${color && (color)}
                 relative overflow-hidden flex flex-col
@@ -83,7 +84,14 @@ export default function Panel({
                 </div>
             )}
 
+            {/* Контейнер для программ*/}
+            {programBlock && (
+                <div className='w-full h-full flex justify-center items-center'>
+                     {programBlock}
+                </div>
+            )}
+
             
-        </button>
+        </div>
     );
 }
